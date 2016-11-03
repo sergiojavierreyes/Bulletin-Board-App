@@ -8,6 +8,7 @@ const bodyParser = require ('body-parser')
 app.set('view engine', 'pug')
 app.set('views', __dirname + "/views")
 
+app.use('/resources',express.static(__dirname + '/static'))
 app.use(bodyParser.urlencoded({extended:true}))
 
 
@@ -15,19 +16,11 @@ app.use(bodyParser.urlencoded({extended:true}))
 let connectionString = 'postgres://' + process.env.POSTGRES_USER + ':' + process.env.POSTGRES_PASSWORD + '@localhost/bulletinboard';
 
 
-
 //Renders a page that displays a form 
 app.get('/form', (req,res)=> {
 	res.render('form')
 })
 
-
-//Fetches messages from database
-app.get('/results', (req, res) =>{
-	
-	res.redirect('results')
-
-})
 
 //takes in the post request from the form, and shows each of the messages people have posted.
 app.post('/results', (req, res) => {
@@ -40,6 +33,23 @@ app.post('/results', (req, res) => {
 		done()
 		res.redirect('results') 
 	})
+})
+
+//Fetches messages from database
+app.get('/results', (req, res) =>{
+	//pg connect
+	pg.connect(connectionString, (err, client, done) =>{
+		if (err) throw (err)
+			client.query('select * from messages', (err, result)=>{
+				if (err) throw (err)
+
+
+				console.log(result.rows)
+				res.render('results', {messages: result.rows})			
+				done()
+			})
+	})
+ 
 })
 
 

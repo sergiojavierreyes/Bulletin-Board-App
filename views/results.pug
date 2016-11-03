@@ -1,5 +1,16 @@
 html
 	head
+		title Bulletin Board
+		link(href='/resources/css/bootstrap.min.css' type="text/css" rel="stylesheet")
 	body
-		h1 Search Results:
-		p 
+		div.page-header
+			h1 Bulletin Board
+				small example
+		h2 Thank you!
+		h3 
+		each thing in messages
+			h4 #{thing.title} 
+			p #{thing.body}
+
+	script(src="/resources/js/jquery-3.1.1.min.js")
+	script(src="/resources/js/bootstrap.min.js")

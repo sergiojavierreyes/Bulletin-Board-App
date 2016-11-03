@@ -1,0 +1,31 @@
+ body {
+ 	display: flex;
+ 	min-height: 100vh;
+ 	flex-direction: column;
+ }
+
+ h2 {
+ 	text-align: center;
+ }
+
+ main {
+ 	flex: 1 0 auto;
+ }
+
+ nav, footer.page-footer {
+ 	background-color: #5D4037;
+
+ }
+
+ #topcard {
+ 	margin-top:-80px;	
+ }
+
+ #logo {
+ 	padding-left:10px;
+ }
+
+ #header {
+ 	min-height:500px;
+ 	background-color: grey;
+ }  
