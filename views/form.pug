@@ -1,13 +1,25 @@
 html
 	head
+		title Hi! 
+		link(href='/resources/css/bootstrap.min.css' type="text/css" rel="stylesheet")
+		link(href='/resources/css/custom.css' type="text/css" rel="stylesheet")
 	body
-		h1 Welcome!
-			form(action='/results', method='POST')
-				p Title:
-				input(type='text', name='title')
-				p Your Message:
-				textarea(type='text', name='textmessage')
+	nav.navbar.headerbg.navbar-fixed-top
+		div.container-fluid
+			h1 Welcome!
+	div.spaceplz
+	ul.nav.nav-pills
+		li.btn.btn-primary.btn-lg.btn-block(role='presentation')
+			a(href='form') Say something!?
+		li.btn.btn-primary.btn-lg.btn-block(role='presentation')
+			a(href='results') The People's message
+	div.container-fluid
+		form(action='/results', method='POST')
+				p.textstyle
+				input.form-control(type='text', name='title' placeholder='Title')
+				p.textstyle
+				textarea.form-control(type='text', name='textmessage' placeholder='What do you want?')
 				br 
 				br
-				input(type='submit', value='ADD')
-
+				input.active.btn.btn-lg.btn-block(type='submit', value='ADD')
+	div.footer

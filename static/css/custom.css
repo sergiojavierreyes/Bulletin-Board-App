@@ -1,31 +1,25 @@
- body {
- 	display: flex;
- 	min-height: 100vh;
- 	flex-direction: column;
- }
+.headerbg {
+	background: white;
+	opacity: 0.7;
+}
 
- h2 {
- 	text-align: center;
- }
+.spaceplz {
+	padding-top: 70px;
+	
+}
 
- main {
- 	flex: 1 0 auto;
- }
+body {
+	background: url(/resources/media/background.jpg) no-repeat;
+	background-size: cover;
+	padding-top: 70px;
+}
 
- nav, footer.page-footer {
- 	background-color: #5D4037;
 
- }
+.footer{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 100px;
+	width: 100%;
+}
 
- #topcard {
- 	margin-top:-80px;	
- }
-
- #logo {
- 	padding-left:10px;
- }
-
- #header {
- 	min-height:500px;
- 	background-color: grey;
- }  
